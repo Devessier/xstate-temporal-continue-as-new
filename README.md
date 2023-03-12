@@ -13,3 +13,19 @@ It seems the issue is that when the machine will be rehydrated, an action will b
 I figured out that a solution is to don't call `clearTimeout` when the timeout id is empty. Seems hacky, but prevents a fatal error from being thrown.
 
 ![Do not call clearTimeout when timeout id is undefined](docs/CleanShot%202023-03-13%20at%2000.23.58@2x.png)
+
+## How to test?
+
+You need to have a Temporal server running.
+
+Start a worker:
+
+```bash
+npm run start.watch
+```
+
+Start a workflow and `continueAsNew` after 8 seconds:
+
+```bash
+npm run workflow
+```
